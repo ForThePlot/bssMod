@@ -2664,7 +2664,7 @@ function BeeSwarmSimulator(DATA){
         
         triggers.become_blue_hive={
             
-            isMachine:true,minX:23-1,maxX:23+1,minY:-2,maxY:5,minZ:6-1,maxZ:6+1,message:'become blue hive',func:function(player){
+            isMachine:true,minX:0,maxX:0,minY:0,maxY:0,minZ:0,maxZ:0,message:'become blue hive',func:function(player){
                 
                 player.currentGear={
                     
@@ -34758,4 +34758,5 @@ function BeeSwarmSimulator(DATA){
         window.objects=objects
     }
     
+
 }
