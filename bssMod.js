@@ -24468,16 +24468,16 @@ player.currentGear = {
     beequips: []
 };
 
-// Only proceed if currentGear exists
-if (player.currentGear) {
+// Check if player exists and has the coconutCanister in their backpack
+if (player && player.currentGear && player.currentGear.backpack === 'coconutCanister') {
+    
+    // Add effects safely
     player.addEffect('superSmoothieBuff');
     player.addEffect('comfortingNectar', 1);
     player.addEffect('refreshingNectar', 1);
     player.addEffect('invigoratingNectar', 1);
     player.addEffect('motivatingNectar', 1);
     player.addEffect('satisfyingNectar', 1);
-
-    player.hive = [[]];
 
     // Add slots individually
     player.addSlot('basic');
@@ -24531,6 +24531,7 @@ if (player.currentGear) {
     player.addSlot('crimson');
     player.addSlot('digital');
 
+    // Update hive safely
     player.updateHive();
 }
         
@@ -34837,6 +34838,7 @@ if (player.currentGear) {
     
 
 }
+
 
 
 
