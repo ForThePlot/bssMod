@@ -24466,7 +24466,6 @@ triggers.become_blue_hive()
                     supremeStarAmulet:'*2.5 capacityMultiplier,*1.5 convertRate,*1.1 redPollen,*1.1 bluePollen,*1.1 whitePollen,*1.6 redPollen,+0.1 instantBlueConversion,+0.1 instantWhiteConversion,+0.1 instantRedConversion,+0.05 criticalChance,P scorchingStarPassive,P starSawPassive',
                     sprinkler:'superSaturator',
                     beequips:[],
-            player.updateGear()
                 player.addEffect('superSmoothieBuff')
                 player.addEffect('comfortingNectar',1)
                 player.addEffect('refreshingNectar',1)
@@ -34830,6 +34829,7 @@ triggers.become_blue_hive()
     
 
 }
+
 
 
 
