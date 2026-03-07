@@ -2662,99 +2662,90 @@ function BeeSwarmSimulator(DATA){
             }
         }
         
-triggers.become_blue_hive = function () {
-
-    if (player) {
-
-        player.currentGear = {
-            tool:'tidePopper',
-            boots:'gummyBoots',
-            belt:'petalBelt',
-            backpack:'coconutCanister',
-            mask:'diamondMask',
-            leftGuard:'crimsonGuard',
-            rightGuard:'cobaltGuard',
-            glider:'glider',
-            supremeStarAmulet:'*2.5 capacityMultiplier,*1.5 convertRate,*1.1 redPollen,*1.1 bluePollen,*1.1 whitePollen,*1.6 bluePollen,+0.1 instantBlueConversion,+0.1 instantWhiteConversion,+0.1 instantRedConversion,+0.05 criticalChance,P popStarPassive,P starShowerPassive',
-            sprinkler:'superSaturator',
-            beequips:[]
+        triggers.become_blue_hive={
+            
+            isMachine:true,minX:23-1,maxX:23+1,minY:-2,maxY:5,minZ:6-1,maxZ:6+1,message:'become blue hive',func:function(player){
+                
+                player.currentGear={
+                    
+                    tool:'tidePopper',
+                    boots:'gummyBoots',
+                    belt:'petalBelt',
+                    backpack:'coconutCanister',
+                    mask:'diamondMask',
+                    leftGuard:'crimsonGuard',
+                    rightGuard:'cobaltGuard',
+                    glider:'glider',
+                    supremeStarAmulet:'*2.5 capacityMultiplier,*1.5 convertRate,*1.1 redPollen,*1.1 bluePollen,*1.1 whitePollen,*1.6 bluePollen,+0.1 instantBlueConversion,+0.1 instantWhiteConversion,+0.1 instantRedConversion,+0.05 criticalChance,P popStarPassive,P starShowerPassive',
+                    sprinkler:'superSaturator',
+                    beequips:[],
+                }
+                
+                player.updateGear()
+                player.addEffect('superSmoothieBuff')
+                player.addEffect('comfortingNectar',1)
+                player.addEffect('refreshingNectar',1)
+                player.addEffect('invigoratingNectar',1)
+                player.addEffect('motivatingNectar',1)
+                player.addEffect('satisfyingNectar',1)
+                player.hive=[[]]
+                player.addSlot('basic')
+                player.addSlot('looker')
+                player.addSlot('bomber')
+                player.addSlot('bubble')
+                player.addSlot('bumble')
+                player.addSlot('bucko')
+                player.addSlot('cool')
+                player.addSlot('frosty')
+                player.addSlot('commander')
+                player.addSlot('windy')
+                player.addSlot('tabby')
+                player.addSlot('diamond')
+                player.addSlot('hasty')
+                player.addSlot('fuzzy')
+                player.addSlot('ninja')
+                player.addSlot('vicious')
+                player.addSlot('bear')
+                player.addSlot('music')
+                player.addSlot('music')
+                player.addSlot('music')
+                player.addSlot('gummy')
+                player.addSlot('honey')
+                player.addSlot('buoyant')
+                player.addSlot('buoyant')
+                player.addSlot('buoyant')
+                player.addSlot('buoyant')
+                player.addSlot('buoyant')
+                player.addSlot('buoyant')
+                player.addSlot('buoyant')
+                player.addSlot('buoyant')
+                player.addSlot('buoyant')
+                player.addSlot('buoyant')
+                player.addSlot('buoyant')
+                player.addSlot('buoyant')
+                player.addSlot('buoyant')
+                player.addSlot('buoyant')
+                player.addSlot('buoyant')
+                player.addSlot('buoyant')
+                player.addSlot('buoyant')
+                player.addSlot('tadpole')
+                player.addSlot('tadpole')
+                player.addSlot('tadpole')
+                player.addSlot('tadpole')
+                player.addSlot('tadpole')
+                player.addSlot('tadpole')
+                player.addSlot('tadpole')
+                player.addSlot('tadpole')
+                player.addSlot('tadpole')
+                player.addSlot('tadpole')
+                player.addSlot('digital')
+                player.updateHive()
+                player.addEffect('balloonBlessing',false,125)
+                player.addEffect('tideBlessing',1)
+                player.addEffect('bubbleBloat',1)
+            }
         }
-
-        player.updateGear()
-
-        player.addEffect('superSmoothieBuff')
-        player.addEffect('comfortingNectar',1)
-        player.addEffect('refreshingNectar',1)
-        player.addEffect('invigoratingNectar',1)
-        player.addEffect('motivatingNectar',1)
-        player.addEffect('satisfyingNectar',1)
-
-        player.hive=[[]]
-
-        player.addSlot('basic')
-        player.addSlot('looker')
-        player.addSlot('bomber')
-        player.addSlot('bubble')
-        player.addSlot('bumble')
-        player.addSlot('bucko')
-        player.addSlot('cool')
-        player.addSlot('frosty')
-        player.addSlot('commander')
-        player.addSlot('windy')
-        player.addSlot('tabby')
-        player.addSlot('diamond')
-        player.addSlot('hasty')
-        player.addSlot('fuzzy')
-        player.addSlot('ninja')
-        player.addSlot('vicious')
-        player.addSlot('bear')
-        player.addSlot('music')
-        player.addSlot('music')
-        player.addSlot('music')
-        player.addSlot('gummy')
-        player.addSlot('honey')
-
-        player.addSlot('buoyant')
-        player.addSlot('buoyant')
-        player.addSlot('buoyant')
-        player.addSlot('buoyant')
-        player.addSlot('buoyant')
-        player.addSlot('buoyant')
-        player.addSlot('buoyant')
-        player.addSlot('buoyant')
-        player.addSlot('buoyant')
-        player.addSlot('buoyant')
-        player.addSlot('buoyant')
-        player.addSlot('buoyant')
-        player.addSlot('buoyant')
-        player.addSlot('buoyant')
-        player.addSlot('buoyant')
-        player.addSlot('buoyant')
-        player.addSlot('buoyant')
-
-        player.addSlot('tadpole')
-        player.addSlot('tadpole')
-        player.addSlot('tadpole')
-        player.addSlot('tadpole')
-        player.addSlot('tadpole')
-        player.addSlot('tadpole')
-        player.addSlot('tadpole')
-        player.addSlot('tadpole')
-        player.addSlot('tadpole')
-        player.addSlot('tadpole')
-
-        player.addSlot('digital')
-
-        player.updateHive()
-
-        player.addEffect('balloonBlessing',false,125)
-        player.addEffect('tideBlessing',1)
-        player.addEffect('bubbleBloat',1)
-
-    }
-
-}
-triggers.become_blue_hive()
+        
         triggers.become_white_hive={
             
             isMachine:true,minX:23-1,maxX:23+1,minY:-2,maxY:5,minZ:8-1,maxZ:8+1,message:'become white hive',func:function(player){
@@ -21391,12 +21382,12 @@ triggers.become_blue_hive()
         shovel:{
             
             collectPattern:[[0,0],[0,-1]],
-            collectAmount:10000000000000000000000000000000000000000,
-            cooldown:0.0,
+            collectAmount:2,
+            cooldown:0.8,
             mesh:function(box,cylinder,sphere,star){
                 
-                box(-0.3,0,0.6,0.1,0.1,0.8,true,[0.5,0.2,0])
-                box(-0.3,0,1.2,0.3,0.1,0.4,true,[0.2,0.2,0.2])
+                box(-0.3,0,0.6,0.1,0.1,0.8,false,[0.5,0.2,0])
+                box(-0.3,0,1.2,0.3,0.1,0.4,false,[0.2,0.2,0.2])
             },
             desc:'A trusty shovel.<br><br>Collects 5 pollen from 2 flowers every 1s.',
             cost:['0 honey']
@@ -21848,9 +21839,9 @@ triggers.become_blue_hive()
         
         darkScythe:{
             
-            collectPattern:[[0,-3],[0,-4],[1,-5],[1,-4],[1,-3],[2,-5],[2,-4],[2,-3],[3,-3],[3,-5], [4,-1],[-1,-3],[-1,-4],[-2,-3],[-3,-3],[0,-5],[-1,-5],[-2,-4],[-4,-2], [3,-4],[4,-4],[2,-2],[3,-2],[-2,-2],[-3,-2],[-4,-1],  [0,-6],[1,-6],[2,-6],[3,-6],[4,-3],[5,-1],[-1,-6],[-2,-5],[-3,-4], [-4,-3],[5,-2],[5,-3],[0,-2],[1,-2],[2,-1],[3,-1],[-1,-2],[-2,-1], [-3,-1],[4,-2],[4,-3],[3,-0],[2,-0],[-2,-0],[-3,-0],[-4,0],[5,0],  [0,-7],[1,-7],[2,-7],[3,-7],[4,-5],[-5,-3],[-1,-7],[-2,-6],[-3,-5],  [-4,-4],[5,-4],[5,-5],[0,-1],[1,-1],[2,-2],[3,-2],[-1,-1],[-2,-2], [-3,-2],[4,-1],[4,-0],[3,-0],[2,-1],[-2,-0],[-3,-1],[-4,-0]]
-            collectAmount:1999999999999999999999999999999999999999,
-            cooldown:0.001,
+            collectPattern:[[0,-3],[0,-4],[1,-5],[1,-4],[1,-3],[2,-5],[2,-4],[2,-3],[3,-3],[3,-5],[4,-1],[-1,-3],[-1,-4],[-2,-3],[-3,-3],[0,-5],[-1,-5],[-2,-4],[-4,-2],[3,-4],[4,-4],[2,-2],[3,-2],[-2,-2],[-3,-2],[-4,-1]],
+            collectAmount:13,
+            cooldown:0.575,
             mesh:function(box,cylinder,sphere,star){
                 
                 box(-0.55,0.75,0.55,0.15,2.2,0.15,[0,0,0],[0.1,0,0],[0,0,30])
@@ -21934,9 +21925,9 @@ triggers.become_blue_hive()
         
         tidePopper:{
             
-            collectPattern:[[0,0],[-1,0],[1,0],[-2,0],[2,0],[-1,-1],[0,-1],[1,-1],[-1,-2],[0,-2],[1,-2],[-1,-3],[0,-3],[1,-3],[-1,-4],[0,-4],[1,-4],[-1,-5],[0,-5],[1,-5],[0,-6],[0,-7],[0,-8]],
-            collectAmount:13,
-            cooldown:1,
+            collectPattern:[[0,-3],[0,-4],[1,-5],[1,-4],[1,-3],[2,-5],[2,-4],[2,-3],[3,-3],[3,-5], [4,-1],[-1,-3],[-1,-4],[-2,-3],[-3,-3],[0,-5],[-1,-5],[-2,-4],[-4,-2], [3,-4],[4,-4],[2,-2],[3,-2],[-2,-2],[-3,-2],[-4,-1],  [0,-6],[1,-6],[2,-6],[3,-6],[4,-3],[5,-1],[-1,-6],[-2,-5],[-3,-4], [-4,-3],[5,-2],[5,-3],[0,-2],[1,-2],[2,-1],[3,-1],[-1,-2],[-2,-1], [-3,-1],[4,-2],[4,-3],[3,-0],[2,-0],[-2,-0],[-3,-0],[-4,0],[5,0],  [0,-7],[1,-7],[2,-7],[3,-7],[4,-5],[-5,-3],[-1,-7],[-2,-6],[-3,-5],  [-4,-4],[5,-4],[5,-5],[0,-1],[1,-1],[2,-2],[3,-2],[-1,-1],[-2,-2], [-3,-2],[4,-1],[4,-0],[3,-0],[2,-1],[-2,-0],[-3,-1],[-4,-0]],
+            collectAmount:999999999999999999999999999999,
+            cooldown:0.01,
             mesh:function(box,cylinder,sphere,star,finalRotation){
                 
                 cylinder(-0.4,2.2,0.4,0.25,0.05,15,1,3,7,90,0,0,0.25)
@@ -24452,44 +24443,21 @@ triggers.become_blue_hive()
             }
         }
         
-// Merge all the gear without destroying existing properties
-Object.assign(player.currentGear, {
-    tool: 'darkScythe',
-    boots: 'gummyBoots',
-    belt: 'petalBelt',
-    backpack: 'coconutCanister',
-    mask: 'demonMask',
-    leftGuard: 'crimsonGuard',
-    rightGuard: 'cobaltGuard',
-    glider: 'glider',
-    supremeStarAmulet: '*2.5 capacityMultiplier,*1.5 convertRate,*1.1 redPollen,*1.1 bluePollen,*1.1 whitePollen,*1.6 redPollen,+0.1 instantBlueConversion,+0.1 instantWhiteConversion,+0.1 instantRedConversion,+0.05 criticalChance,P scorchingStarPassive,P starSawPassive',
-    sprinkler: 'superSaturator',
-    beequips: []
-});
-
-// Add effects safely
-player.addEffect('superSmoothieBuff');
-player.addEffect('comfortingNectar', 1);
-player.addEffect('refreshingNectar', 1);
-player.addEffect('invigoratingNectar', 1);
-player.addEffect('motivatingNectar', 1);
-player.addEffect('satisfyingNectar', 1);
-
-// Only add slots if the player has coconutCanister
-if (player.currentGear.backpack === 'coconutCanister') {
-    [
-        'basic','looker','fire','spicy','rad','rascal','commander','riley','shy','precise','bear','festive',
-        'windy','tabby','hasty','fuzzy','music','music','music','tadpole','tadpole','tadpole','gummy',
-        'precise','precise','precise','precise','precise','vector','vector','vector','vector','vector',
-        'carpenter','carpenter','carpenter','spicy','spicy','spicy','spicy','spicy','spicy','spicy','spicy',
-        'spicy','spicy','spicy','spicy','spicy','crimson','digital'
-    ].forEach(slot => {
-        if (!player.slots.includes(slot)) player.addSlot(slot);
-    });
-
-    // Update hive safely without wiping existing arrays
-    player.updateHive();
-}
+        out.currentGear={
+            
+              tool:'tidepopper',
+                    boots:'gummyBoots',
+                    belt:'petalBelt',
+                    backpack:'coconutCanister',
+                    mask:'diamondMask',
+                    leftGuard:'crimsonGuard',
+                    rightGuard:'cobaltGuard',
+                    glider:'glider',
+                    supremeStarAmulet:'*2.5 capacityMultiplier,*1.5 convertRate,*1.1 redPollen,*1.1 bluePollen,*1.1 whitePollen,*1.6 bluePollen,+0.1 instantBlueConversion,+0.1 instantWhiteConversion,+0.1 instantRedConversion,+0.05 criticalChance,P popStarPassive,P starShowerPassive',
+                    sprinkler:'superSaturator',
+            beequips:[]
+        }
+        
         out.generateBeequip=function(type){
             
             let p=beequips[type].potentials[(Math.random()*beequips[type].potentials.length)|0],st=beequips[type].generateStats(p)
@@ -28239,47 +28207,51 @@ if (player.currentGear.backpack === 'coconutCanister') {
             currentIndex:0,message:'Explore Beequip Shop'
         },
 
-        treat:{
-
-            items:[{
-
-                amountPurchased:0,maxPurchasedAmount:Infinity,
-                name:'treat',
-                slot:'item',
-                viewMatrix:[23.5,1,41-7,Math.PI,0.04],
-                cost:[(n,i=1)=>Math.floor(Math.min(n*50+100,10000)*i)+' honey'],
-                desc:'Can be fed to a bee to increase its bond by 10!'
-            }],
-            currentIndex:0,message:'Explore Treat Shop',currentIncrement:0,increments:[1,10,10e1,10e2,10e3,10e4,10e5,10e6,10e7,10e8]
-        },
+       treat: {
+    items: [{
+        amountPurchased: 0,
+        maxPurchasedAmount: Infinity,
+        name: 'treat',
+        slot: 'item',
+        viewMatrix: [23.5, 1, 41 - 7, Math.PI, 0.04],
+        cost: () => '0 honey', // always zero
+        desc: 'Can be fed to a bee to increase its bond by 10!'
+    }],
+    currentIndex: 0,
+    message: 'Explore Treat Shop',
+    currentIncrement: 0,
+    increments: [1, 10, 100, 1000, 10000, 100000, 1000000, 10000000, 100000000, 1000000000]
+}
 
         royalJelly:{
 
-            items:[{
+items: [{
+    amountPurchased: 0,
+    maxPurchasedAmount: Infinity,
+    name: 'royalJelly',
+    slot: 'item',
+    viewMatrix: [32 + 4.5, 12, 50.25 - 4.5, -MATH.HALF_PI - MATH.QUATER_PI, 0.02],
+    cost: () => '0 honey', // always zero
+    desc: 'Can be fed to a bee to transform it into a different type!'
+}],
+currentIndex: 0,
+message: 'Explore Royal Jelly Shop',
+currentIncrement: 0,
+increments: [1,10,100,1000,10000,100000]
 
-                amountPurchased:0,maxPurchasedAmount:Infinity,
-                name:'royalJelly',
-                slot:'item',
-                viewMatrix:[32+4.5,12,50.25-4.5,-MATH.HALF_PI-MATH.QUATER_PI,0.02],
-                cost:[(n,i=1)=>Math.floor(Math.min(n*2500+25000,1000000)*i)+' honey'],
-                desc:'Can be fed to a bee to transform it into a different type!'
-            }],
-            currentIndex:0,message:'Explore Royal Jelly Shop',currentIncrement:0,increments:[1,10,10e1,10e2,10e3,10e4]
-        },
-
-        basicEgg:{
-
-            items:[{
-
-                amountPurchased:0,maxPurchasedAmount:Infinity,
-                name:'basicEgg',
-                slot:'item',
-                viewMatrix:[10-4.5,1,13.5-4.5,MATH.HALF_PI+MATH.QUATER_PI,0.02],
-                cost:[(n,i=1)=>(Math.min(500*Math.pow(1.35,n)*i,10000000)|0)+' honey'],
-                desc:'Can be used to hatch a Basic Bee!'
-            }],
-            currentIndex:0,message:'Explore Basic Egg Shop'
-        },
+       basicEgg: {
+    items: [{
+        amountPurchased: 0,
+        maxPurchasedAmount: Infinity,
+        name: 'basicEgg',
+        slot: 'item',
+        viewMatrix: [10 - 4.5, 1, 13.5 - 4.5, MATH.HALF_PI + MATH.QUATER_PI, 0.02],
+        cost: () => '0 honey', // always zero
+        desc: 'Can be used to hatch a Basic Bee!'
+    }],
+    currentIndex: 0,
+    message: 'Explore Basic Egg Shop'
+}
 
         stinger:{
 
@@ -28307,18 +28279,21 @@ if (player.currentGear.backpack === 'coconutCanister') {
             currentIndex:0,message:'Explore Magic Bean Shop',currentIncrement:0,increments:[1,10]
         },
 
-        ticket:{
-
-            items:[{
-                amountPurchased:0,maxPurchasedAmount:Infinity,
-                name:'ticket',
-                slot:'item',
-                viewMatrix:[-11.75-4.5,35,88.25-4.5,MATH.HALF_PI+MATH.QUATER_PI,0.02],
-                cost:[(n,i=1)=>Math.min(Math.floor(5000*Math.pow(1.003,n)*i),1000000000000)+' honey'],
-                desc:'Can be used to purchase special items and activate machines!'
-            }],
-            currentIndex:0,message:'Explore Ticket Shop',currentIncrement:0,increments:[1,10,10e1,50e1]
-        },
+        ticket: {
+    items: [{
+        amountPurchased: 0,
+        maxPurchasedAmount: Infinity,
+        name: 'ticket',
+        slot: 'item',
+        viewMatrix: [-11.75-4.5, 35, 88.25-4.5, MATH.HALF_PI + MATH.QUATER_PI, 0.02],
+        cost: () => '0 honey', // always zero
+        desc: 'Can be used to purchase special items and activate machines!'
+    }],
+    currentIndex: 0,
+    message: 'Explore Ticket Shop',
+    currentIncrement: 0,
+    increments: [1, 10, 100, 500]
+}
 
         gumdrops:{
 
@@ -34791,14 +34766,4 @@ if (player.currentGear.backpack === 'coconutCanister') {
         window.objects=objects
     }
     
-
 }
-
-
-
-
-
-
-
-
-
