@@ -24454,16 +24454,18 @@ triggers.become_blue_hive()
         
         out.currentGear={
             
-            tool:'shovel',
-            boots:'none',
-            belt:'none',
-            backpack:'coconutCanister',
-            mask:'none',
-            leftGuard:'none',
-            rightGuard:'none',
-            glider:'none',
-            sprinkler:'none',
-            beequips:[]
+              
+                    tool:'darkScythe',
+                    boots:'gummyBoots',
+                    belt:'petalBelt',
+                    backpack:'coconutCanister',
+                    mask:'demonMask',
+                    leftGuard:'crimsonGuard',
+                    rightGuard:'cobaltGuard',
+                    glider:'glider',
+                    supremeStarAmulet:'*2.5 capacityMultiplier,*1.5 convertRate,*1.1 redPollen,*1.1 bluePollen,*1.1 whitePollen,*1.6 redPollen,+0.1 instantBlueConversion,+0.1 instantWhiteConversion,+0.1 instantRedConversion,+0.05 criticalChance,P scorchingStarPassive,P starSawPassive',
+                    sprinkler:'superSaturator',
+                    beequips:[],
         }
         
         out.generateBeequip=function(type){
@@ -34769,6 +34771,7 @@ triggers.become_blue_hive()
     
 
 }
+
 
 
 
