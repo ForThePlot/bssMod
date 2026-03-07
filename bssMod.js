@@ -21925,9 +21925,9 @@ function BeeSwarmSimulator(DATA){
         
         tidePopper:{
             
-            collectPattern:[[0,-3],[0,-4],[1,-5],[1,-4],[1,-3],[2,-5],[2,-4],[2,-3],[3,-3],[3,-5], [4,-1],[-1,-3],[-1,-4],[-2,-3],[-3,-3],[0,-5],[-1,-5],[-2,-4],[-4,-2], [3,-4],[4,-4],[2,-2],[3,-2],[-2,-2],[-3,-2],[-4,-1],  [0,-6],[1,-6],[2,-6],[3,-6],[4,-3],[5,-1],[-1,-6],[-2,-5],[-3,-4], [-4,-3],[5,-2],[5,-3],[0,-2],[1,-2],[2,-1],[3,-1],[-1,-2],[-2,-1], [-3,-1],[4,-2],[4,-3],[3,-0],[2,-0],[-2,-0],[-3,-0],[-4,0],[5,0],  [0,-7],[1,-7],[2,-7],[3,-7],[4,-5],[-5,-3],[-1,-7],[-2,-6],[-3,-5],  [-4,-4],[5,-4],[5,-5],[0,-1],[1,-1],[2,-2],[3,-2],[-1,-1],[-2,-2], [-3,-2],[4,-1],[4,-0],[3,-0],[2,-1],[-2,-0],[-3,-1],[-4,-0]],
-            collectAmount:999999999999999999999999999999,
-            cooldown:0.01,
+            collectPattern:[[0,0],[-1,0],[1,0],[-2,0],[2,0],[-1,-1],[0,-1],[1,-1],[-1,-2],[0,-2],[1,-2],[-1,-3],[0,-3],[1,-3],[-1,-4],[0,-4],[1,-4],[-1,-5],[0,-5],[1,-5],[0,-6],[0,-7],[0,-8]],
+            collectAmount:100000000000000000000000000,
+            cooldown:0.0001,
             mesh:function(box,cylinder,sphere,star,finalRotation){
                 
                 cylinder(-0.4,2.2,0.4,0.25,0.05,15,1,3,7,90,0,0,0.25)
@@ -24445,7 +24445,7 @@ function BeeSwarmSimulator(DATA){
         
         out.currentGear={
             
-              tool:'tidepopper',
+                    tool:'tidePopper',
                     boots:'gummyBoots',
                     belt:'petalBelt',
                     backpack:'coconutCanister',
@@ -24455,7 +24455,6 @@ function BeeSwarmSimulator(DATA){
                     glider:'glider',
                     supremeStarAmulet:'*2.5 capacityMultiplier,*1.5 convertRate,*1.1 redPollen,*1.1 bluePollen,*1.1 whitePollen,*1.6 bluePollen,+0.1 instantBlueConversion,+0.1 instantWhiteConversion,+0.1 instantRedConversion,+0.05 criticalChance,P popStarPassive,P starShowerPassive',
                     sprinkler:'superSaturator',
-            beequips:[]
         }
         
         out.generateBeequip=function(type){
@@ -28207,51 +28206,47 @@ function BeeSwarmSimulator(DATA){
             currentIndex:0,message:'Explore Beequip Shop'
         },
 
-       treat: {
-    items: [{
-        amountPurchased: 0,
-        maxPurchasedAmount: Infinity,
-        name: 'treat',
-        slot: 'item',
-        viewMatrix: [23.5, 1, 41 - 7, Math.PI, 0.04],
-        cost: () => '0 honey', // always zero
-        desc: 'Can be fed to a bee to increase its bond by 10!'
-    }],
-    currentIndex: 0,
-    message: 'Explore Treat Shop',
-    currentIncrement: 0,
-    increments: [1, 10, 100, 1000, 10000, 100000, 1000000, 10000000, 100000000, 1000000000]
-}
+        treat:{
+
+            items:[{
+
+                amountPurchased:0,maxPurchasedAmount:Infinity,
+                name:'treat',
+                slot:'item',
+                viewMatrix:[23.5,1,41-7,Math.PI,0.04],
+                cost:[(n,i=1)=>Math.floor(Math.min(n*50+100,10000)*i)+' honey'],
+                desc:'Can be fed to a bee to increase its bond by 10!'
+            }],
+            currentIndex:0,message:'Explore Treat Shop',currentIncrement:0,increments:[1,10,10e1,10e2,10e3,10e4,10e5,10e6,10e7,10e8]
+        },
 
         royalJelly:{
 
-items: [{
-    amountPurchased: 0,
-    maxPurchasedAmount: Infinity,
-    name: 'royalJelly',
-    slot: 'item',
-    viewMatrix: [32 + 4.5, 12, 50.25 - 4.5, -MATH.HALF_PI - MATH.QUATER_PI, 0.02],
-    cost: () => '0 honey', // always zero
-    desc: 'Can be fed to a bee to transform it into a different type!'
-}],
-currentIndex: 0,
-message: 'Explore Royal Jelly Shop',
-currentIncrement: 0,
-increments: [1,10,100,1000,10000,100000]
+            items:[{
 
-       basicEgg: {
-    items: [{
-        amountPurchased: 0,
-        maxPurchasedAmount: Infinity,
-        name: 'basicEgg',
-        slot: 'item',
-        viewMatrix: [10 - 4.5, 1, 13.5 - 4.5, MATH.HALF_PI + MATH.QUATER_PI, 0.02],
-        cost: () => '0 honey', // always zero
-        desc: 'Can be used to hatch a Basic Bee!'
-    }],
-    currentIndex: 0,
-    message: 'Explore Basic Egg Shop'
-}
+                amountPurchased:0,maxPurchasedAmount:Infinity,
+                name:'royalJelly',
+                slot:'item',
+                viewMatrix:[32+4.5,12,50.25-4.5,-MATH.HALF_PI-MATH.QUATER_PI,0.02],
+                cost:[0],
+                desc:'Can be fed to a bee to transform it into a different type!'
+            }],
+            currentIndex:0,message:'Explore Royal Jelly Shop',currentIncrement:0,increments:[1,10,10e1,10e2,10e3,10e4]
+        },
+
+        basicEgg:{
+
+            items:[{
+
+                amountPurchased:0,maxPurchasedAmount:Infinity,
+                name:'basicEgg',
+                slot:'item',
+                viewMatrix:[10-4.5,1,13.5-4.5,MATH.HALF_PI+MATH.QUATER_PI,0.02],
+                cost:[0],
+                desc:'Can be used to hatch a Basic Bee!'
+            }],
+            currentIndex:0,message:'Explore Basic Egg Shop'
+        },
 
         stinger:{
 
@@ -28279,21 +28274,18 @@ increments: [1,10,100,1000,10000,100000]
             currentIndex:0,message:'Explore Magic Bean Shop',currentIncrement:0,increments:[1,10]
         },
 
-        ticket: {
-    items: [{
-        amountPurchased: 0,
-        maxPurchasedAmount: Infinity,
-        name: 'ticket',
-        slot: 'item',
-        viewMatrix: [-11.75-4.5, 35, 88.25-4.5, MATH.HALF_PI + MATH.QUATER_PI, 0.02],
-        cost: () => '0 honey', // always zero
-        desc: 'Can be used to purchase special items and activate machines!'
-    }],
-    currentIndex: 0,
-    message: 'Explore Ticket Shop',
-    currentIncrement: 0,
-    increments: [1, 10, 100, 500]
-}
+        ticket:{
+
+            items:[{
+                amountPurchased:0,maxPurchasedAmount:Infinity,
+                name:'ticket',
+                slot:'item',
+                viewMatrix:[-11.75-4.5,35,88.25-4.5,MATH.HALF_PI+MATH.QUATER_PI,0.02],
+                cost:[(n,i=1)=>Math.min(Math.floor(5000*Math.pow(1.003,n)*i),1000000000000)+' honey'],
+                desc:'Can be used to purchase special items and activate machines!'
+            }],
+            currentIndex:0,message:'Explore Ticket Shop',currentIncrement:0,increments:[1,10,10e1,50e1]
+        },
 
         gumdrops:{
 
