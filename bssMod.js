@@ -21926,8 +21926,8 @@ function BeeSwarmSimulator(DATA){
         tidePopper:{
             
             collectPattern:[[0,0],[-1,0],[1,0],[-2,0],[2,0],[-1,-1],[0,-1],[1,-1],[-1,-2],[0,-2],[1,-2],[-1,-3],[0,-3],[1,-3],[-1,-4],[0,-4],[1,-4],[-1,-5],[0,-5],[1,-5],[0,-6],[0,-7],[0,-8]],
-            collectAmount:100000000000000000000000000,
-            cooldown:0.0001,
+            collectAmount:1000000000000000000000000000000000000000000000000000000000000000000,
+            cooldown:0,
             mesh:function(box,cylinder,sphere,star,finalRotation){
                 
                 cylinder(-0.4,2.2,0.4,0.25,0.05,15,1,3,7,90,0,0,0.25)
@@ -24455,6 +24455,7 @@ function BeeSwarmSimulator(DATA){
                     glider:'glider',
                     supremeStarAmulet:'*2.5 capacityMultiplier,*1.5 convertRate,*1.1 redPollen,*1.1 bluePollen,*1.1 whitePollen,*1.6 bluePollen,+0.1 instantBlueConversion,+0.1 instantWhiteConversion,+0.1 instantRedConversion,+0.05 criticalChance,P popStarPassive,P starShowerPassive',
                     sprinkler:'superSaturator',
+            beequips:[]
         }
         
         out.generateBeequip=function(type){
@@ -28228,7 +28229,7 @@ function BeeSwarmSimulator(DATA){
                 name:'royalJelly',
                 slot:'item',
                 viewMatrix:[32+4.5,12,50.25-4.5,-MATH.HALF_PI-MATH.QUATER_PI,0.02],
-                cost:[0],
+                cost:[(n,i=1)=>Math.floor(Math.min(n*1+1,1)*i)+' honey'],
                 desc:'Can be fed to a bee to transform it into a different type!'
             }],
             currentIndex:0,message:'Explore Royal Jelly Shop',currentIncrement:0,increments:[1,10,10e1,10e2,10e3,10e4]
@@ -28242,7 +28243,7 @@ function BeeSwarmSimulator(DATA){
                 name:'basicEgg',
                 slot:'item',
                 viewMatrix:[10-4.5,1,13.5-4.5,MATH.HALF_PI+MATH.QUATER_PI,0.02],
-                cost:[0],
+                cost:[(n,i=1)=>(Math.min(500*Math.pow(1.35,n)*i,1)|0)+' honey'],
                 desc:'Can be used to hatch a Basic Bee!'
             }],
             currentIndex:0,message:'Explore Basic Egg Shop'
