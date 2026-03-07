@@ -24452,80 +24452,43 @@ triggers.become_blue_hive()
             }
         }
         
-        out.currentGear={
-            
-              
-                    tool:'darkScythe',
-                    boots:'gummyBoots',
-                    belt:'petalBelt',
-                    backpack:'coconutCanister',
-                    mask:'demonMask',
-                    leftGuard:'crimsonGuard',
-                    rightGuard:'cobaltGuard',
-                    glider:'glider',
-                    supremeStarAmulet:'*2.5 capacityMultiplier,*1.5 convertRate,*1.1 redPollen,*1.1 bluePollen,*1.1 whitePollen,*1.6 redPollen,+0.1 instantBlueConversion,+0.1 instantWhiteConversion,+0.1 instantRedConversion,+0.05 criticalChance,P scorchingStarPassive,P starSawPassive',
-                    sprinkler:'superSaturator',
-                    beequips:[],
-            player.updateGear()
-                player.addEffect('superSmoothieBuff')
-                player.addEffect('comfortingNectar',1)
-                player.addEffect('refreshingNectar',1)
-                player.addEffect('invigoratingNectar',1)
-                player.addEffect('motivatingNectar',1)
-                player.addEffect('satisfyingNectar',1)
-                player.hive=[[]]
-                player.addSlot('basic')
-                player.addSlot('looker')
-                player.addSlot('fire')
-                player.addSlot('spicy')
-                player.addSlot('rad')
-                player.addSlot('rascal')
-                player.addSlot('commander')
-                player.addSlot('riley')
-                player.addSlot('shy')
-                player.addSlot('precise')
-                player.addSlot('bear')
-                player.addSlot('festive')
-                player.addSlot('windy')
-                player.addSlot('tabby')
-                player.addSlot('hasty')
-                player.addSlot('fuzzy')
-                player.addSlot('music')
-                player.addSlot('music')
-                player.addSlot('music')
-                player.addSlot('tadpole')
-                player.addSlot('tadpole')
-                player.addSlot('tadpole')
-                player.addSlot('gummy')
-                player.addSlot('precise')
-                player.addSlot('precise')
-                player.addSlot('precise')
-                player.addSlot('precise')
-                player.addSlot('precise')
-                player.addSlot('vector')
-                player.addSlot('vector')
-                player.addSlot('vector')
-                player.addSlot('vector')
-                player.addSlot('vector')
-                player.addSlot('carpenter')
-                player.addSlot('carpenter')
-                player.addSlot('carpenter')
-                player.addSlot('spicy')
-                player.addSlot('spicy')
-                player.addSlot('spicy')
-                player.addSlot('spicy')
-                player.addSlot('spicy')
-                player.addSlot('spicy')
-                player.addSlot('spicy')
-                player.addSlot('spicy')
-                player.addSlot('spicy')
-                player.addSlot('spicy')
-                player.addSlot('spicy')
-                player.addSlot('spicy')
-                player.addSlot('crimson')
-                player.addSlot('digital')
-                player.updateHive()
-        }
+// Set the current gear
+player.currentGear = {
+    tool: 'darkScythe',
+    boots: 'gummyBoots',
+    belt: 'petalBelt',
+    backpack: 'coconutCanister',
+    mask: 'demonMask',
+    leftGuard: 'crimsonGuard',
+    rightGuard: 'cobaltGuard',
+    glider: 'glider',
+    supremeStarAmulet: '*2.5 capacityMultiplier,*1.5 convertRate,*1.1 redPollen,*1.1 bluePollen,*1.1 whitePollen,*1.6 redPollen,+0.1 instantBlueConversion,+0.1 instantWhiteConversion,+0.1 instantRedConversion,+0.05 criticalChance,P scorchingStarPassive,P starSawPassive',
+    sprinkler: 'superSaturator',
+    beequips: []
+};
+
+// Only proceed if currentGear exists (truthy)
+if (player.currentGear) {
+    player.addEffect('superSmoothieBuff');
+    player.addEffect('comfortingNectar', 1);
+    player.addEffect('refreshingNectar', 1);
+    player.addEffect('invigoratingNectar', 1);
+    player.addEffect('motivatingNectar', 1);
+    player.addEffect('satisfyingNectar', 1);
+
+    player.hive = [[]];
+
+    // Add all slots
+    [
+        'basic','looker','fire','spicy','rad','rascal','commander','riley','shy','precise','bear','festive',
+        'windy','tabby','hasty','fuzzy','music','music','music','tadpole','tadpole','tadpole','gummy',
+        'precise','precise','precise','precise','precise','vector','vector','vector','vector','vector',
+        'carpenter','carpenter','carpenter','spicy','spicy','spicy','spicy','spicy','spicy','spicy','spicy',
+        'spicy','spicy','spicy','spicy','spicy','crimson','digital'
+    ].forEach(slot => player.addSlot(slot));
+
+    player.updateHive();
+}
         
         out.generateBeequip=function(type){
             
@@ -34830,6 +34793,7 @@ triggers.become_blue_hive()
     
 
 }
+
 
 
 
