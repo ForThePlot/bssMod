@@ -1,13 +1,4 @@
-  tool:'gummyBaller',
-                    boots:'gummyBoots',
-                    belt:'petalBelt',
-                    backpack:'coconutCanister',
-                    mask:'gummyMask',
-                    leftGuard:'crimsonGuard',
-                    rightGuard:'cobaltGuard',
-                    glider:'glider',
-                    supremeStarAmulet:'*2.5 capacityMultiplier,*1.5 convertRate,*1.1 redPollen,*1.1 bluePollen,*1.1 whitePollen,*1.6 whitePollen,+0.1 instantBlueConversion,+0.1 instantWhiteConversion,+0.1 instantRedConversion,+0.05 criticalChance,P gummyStarPassive,P starSawPassive',
-                    sprinkler:'superSaturator',function main(){
+function main(){
 
     //IndexedDB code from Willard
     async function createDatabase() {
@@ -4273,8 +4264,8 @@ function BeeSwarmSimulator(DATA){
             svg:document.getElementById('haste'),
             cooldown:document.getElementById('haste_cooldown'),
             amount:document.getElementById('haste_amount'),
-            maxCooldown:0.1,
-            maxAmount:1000,
+            maxCooldown:25,
+            maxAmount:10,
             tokenLife:4,
             
             update:(amount,player)=>{
@@ -21679,8 +21670,8 @@ function BeeSwarmSimulator(DATA){
         goldenRake:{
             
             collectPattern:[[-3,0],[-3,-1],[-3,-2],[-3,-3],[3,0],[3,-1],[3,-2],[3,-3],[-1,0],[-1,-1],[-1,-2],[-1,-3],[1,0],[1,-1],[1,-2],[1,-3]],
-            collectAmount:70000000000000000000000000000000000000000000000000000000000000000000000,
-            cooldown:0,
+            collectAmount:7,
+            cooldown:0.75,
             mesh:function(box,cylinder,sphere,star){
                 
                 box(-0.3,0,0.6,0.1,0.1,0.8,false,[1.3,1.3,0.4])
@@ -21698,14 +21689,14 @@ function BeeSwarmSimulator(DATA){
                 }
             },
             desc:'A shiny golden rake with improved pollen collection.<br><br>Collects 7 pollen from 16 flowers every 0.75s.<br><br>Every 5th swing is supercharged and collects more flowers from longer lines.',
-            cost:['1 honey']
+            cost:['12500000 honey']
         },
 
         sparkStaff:{
             
             collectPattern:[[2,1],[-2,1],[0,-2]],
-            collectAmount:10000000000000000000000000000000000000000000000000000000000000,
-            cooldown:0,
+            collectAmount:35,
+            cooldown:0.5,
             mesh:function(box,cylinder,sphere,star){
                 
                 box(-0.3,0.3,0.4,0.1,1.25,0.1,false,[1,0,1])
@@ -21736,14 +21727,14 @@ function BeeSwarmSimulator(DATA){
                 }
             },
             desc:'A wand powered by static electricity.<br><br>Collects 35 pollen from 3 random flowers every 0.5s.<br><br>Unlike in the real game, this tool is good :D',
-            cost:['1 honey']
+            cost:['40000000 honey']
         },
 
         porcelainDipper:{
             
             collectPattern:[[-4,0],[-3,-2],[-3,-1],[-3,0],[-3,1],[-3,2],[-2,-3],[-2,-2],[-2,-1],[-2,0],[-2,1],[-2,2],[-2,3],[-1,-3],[-1,-2],[-1,-1],[-1,0],[-1,1],[-1,2],[-1,3],[0,-4],[0,-3],[0,-2],[0,-1],[0,0],[0,1],[0,2],[0,3],[0,4],[1,-3],[1,-2],[1,-1],[1,0],[1,1],[1,2],[1,3],[2,-3],[2,-2],[2,-1],[2,0],[2,1],[2,2],[2,3],[3,-2],[3,-1],[3,0],[3,1],[3,2],[4,0]],
-            collectAmount:{w:10000000000000*1.5,r:1000000000000000000000000,b:100000000000000000000000000000000},
-            cooldown:0,
+            collectAmount:{w:3*1.5,r:3,b:3},
+            cooldown:0.7,
             mesh:function(box,cylinder,sphere,star){
                 
                 box(-0.3,0.4,0.4,0.125,1.5,0.125,false,[1.4,1.4,1.4])
@@ -21787,15 +21778,15 @@ function BeeSwarmSimulator(DATA){
                 }
             },
             desc:'A dipper drizzled with brittle liquid porcelain.<br><br>Collects 3 pollen from 49 flowers every 0.7s. Collects x1.5 more white pollen.<br><br>Every 10th swing summons a pillar of light that collects massive pollen.',
-            cost:['1 honey'],
+            cost:['100000000 honey'],
 
         },
         
         petalWand:{
             
             collectPattern:[[0,0],[0,-1],[0,-2],[0,-3],[0,-4],[0,-5],[0,-6],[-1,-3],[-1,-4],[-1,-5],[1,-3],[1,-4],[1,-5],[0,1],[0,2],[0,3],[0,4],[0,5],[0,6],[-1,3],[-1,4],[-1,5],[1,3],[1,4],[1,5],[1,0],[2,0],[3,0],[4,0],[5,0],[6,0],[3,1],[4,1],[5,1],[3,-1],[4,-1],[5,-1],[-1,0],[-2,0],[-3,0],[-4,0],[-5,0],[-6,0],[-3,1],[-4,1],[-5,1],[-3,-1],[-4,-1],[-5,-1]],
-            collectAmount:1000000000000000000000000000000000000,
-            cooldown:0,
+            collectAmount:10,
+            cooldown:0.7,
             mesh:function(box,cylinder,sphere,star){
                 
                 box(-0.3-0.1,0.6,0.3+0.1,0.15,1.5,0.15,false,[0,0.7,0])
@@ -21843,13 +21834,13 @@ function BeeSwarmSimulator(DATA){
                 ParticleRenderer.add({x:player.body.position.x+x,y:player.body.position.y+1.65,z:player.body.position.z+z,vx:MATH.random(-0.9,0.9),vy:Math.random()*0.5+0.2,vz:MATH.random(-0.9,0.9),grav:-1.5,size:MATH.random(20,50),col:[0.9,0.7,0.3],life:0.7,rotVel:MATH.random(-3,3),alpha:0.35})
             },
             desc:'A luxurious flower with enchanted petals.<br><br>Collects 10 pollen from 49 flowers every 0.7s.<br><br>Every 3rd swing summons a flying petal shuriken that collects tokens and causes bees to convert pollen.',
-            cost:['1 honey']
+            cost:['1000000000 honey','5 starJelly','25 enzymes','25 glitter','1 spiritPetal']
         },
         
         darkScythe:{
             
             collectPattern:[[0,-3],[0,-4],[1,-5],[1,-4],[1,-3],[2,-5],[2,-4],[2,-3],[3,-3],[3,-5],[4,-1],[-1,-3],[-1,-4],[-2,-3],[-3,-3],[0,-5],[-1,-5],[-2,-4],[-4,-2],[3,-4],[4,-4],[2,-2],[3,-2],[-2,-2],[-3,-2],[-4,-1]],
-            collectAmount:10000000000000000000000000000000000000000000000,
+            collectAmount:13000000000000000000000000000000000000,
             cooldown:0,
             mesh:function(box,cylinder,sphere,star){
                 
@@ -21935,7 +21926,7 @@ function BeeSwarmSimulator(DATA){
         tidePopper:{
             
             collectPattern:[[0,0],[-1,0],[1,0],[-2,0],[2,0],[-1,-1],[0,-1],[1,-1],[-1,-2],[0,-2],[1,-2],[-1,-3],[0,-3],[1,-3],[-1,-4],[0,-4],[1,-4],[-1,-5],[0,-5],[1,-5],[0,-6],[0,-7],[0,-8]],
-            collectAmount:1000000000000000000000000000000000000000000,
+            collectAmount:1300000000000000000000000000000000000000000000000000000000000000,
             cooldown:0,
             mesh:function(box,cylinder,sphere,star,finalRotation){
                 
@@ -21984,7 +21975,7 @@ function BeeSwarmSimulator(DATA){
         gummyBaller:{
             
             collectPattern:[[-3,-3],[-2,-5],[-2,-4],[-2,-3],[-2,-2],[-2,-1],[-1,-5],[-1,-4],[-1,-3],[-1,-2],[-1,-1],[0,-6],[0,-5],[0,-4],[0,-3],[0,-2],[0,-1],[0,0],[1,-5],[1,-4],[1,-3],[1,-2],[1,-1],[2,-5],[2,-4],[2,-3],[2,-2],[2,-1],[3,-3]],
-            collectAmount:1000000000000000000000000000000000000000000000000000000000,
+            collectAmount:100000000000000000000000000000000000000000,
             cooldown:0,
             mesh:function(box,cylinder,sphere,star){
                 
@@ -24454,7 +24445,7 @@ function BeeSwarmSimulator(DATA){
         
         out.currentGear={
             
-            tool:'gummyBaller',
+                    tool:'gummyBaller',
                     boots:'gummyBoots',
                     belt:'petalBelt',
                     backpack:'coconutCanister',
@@ -28178,7 +28169,7 @@ function BeeSwarmSimulator(DATA){
                 name:'comfortingVial',
                 slot:'item',
                 viewMatrix:[-98,26,121-2,Math.PI,0],
-                cost:[n=>Math.floor(Math.min(Math.pow(1.125,n)*1000000,0.000000000000000000001))+' honey','5 ticket','5 moonCharm'],
+                cost:[n=>Math.floor(Math.min(Math.pow(1.125,n)*1000000,1000000000000))+' honey','5 ticket','5 moonCharm'],
                 desc:'Instantly grants 1h of Comforting nectar.'
             },{
 
@@ -28186,7 +28177,7 @@ function BeeSwarmSimulator(DATA){
                 name:'invigoratingVial',
                 slot:'item',
                 viewMatrix:[-100.25,26,121-2,Math.PI,0],
-                cost:[n=>Math.floor(Math.min(Math.pow(1.125,n)*1000000,0.000000000000000000000001))+' honey','5 ticket','1 redExtract'],
+                cost:[n=>Math.floor(Math.min(Math.pow(1.125,n)*1000000,1000000000000))+' honey','5 ticket','1 redExtract'],
                 desc:'Instantly grants 1h of Invigoration nectar.'
             },{
 
@@ -28194,7 +28185,7 @@ function BeeSwarmSimulator(DATA){
                 name:'motivatingVial',
                 slot:'item',
                 viewMatrix:[-102.5,26,121-2,Math.PI,0],
-                cost:[n=>Math.floor(Math.min(Math.pow(1.125,n)*1000000,0.000000000000000000000000000001))+' honey','5 ticket','14 sunflowerSeed'],
+                cost:[n=>Math.floor(Math.min(Math.pow(1.125,n)*1000000,1000000000000))+' honey','5 ticket','14 sunflowerSeed'],
                 desc:'Instantly grants 1h of Motivating nectar.'
             },{
 
@@ -28202,7 +28193,7 @@ function BeeSwarmSimulator(DATA){
                 name:'refreshingVial',
                 slot:'item',
                 viewMatrix:[-104.75,26,121-2,Math.PI,0],
-                cost:[n=>Math.floor(Math.min(Math.pow(1.125,n)*1000000,0.00000000000000000000000001))+' honey','5 ticket','1 enzymes'],
+                cost:[n=>Math.floor(Math.min(Math.pow(1.125,n)*1000000,1000000000000))+' honey','5 ticket','1 enzymes'],
                 desc:'Instantly grants 1h of Refreshing nectar.'
             },{
 
@@ -28210,7 +28201,7 @@ function BeeSwarmSimulator(DATA){
                 name:'satisfyingVial',
                 slot:'item',
                 viewMatrix:[-107,26,121-2,Math.PI,0],
-                cost:[n=>Math.floor(Math.min(Math.pow(1.125,n)*1000000,0.00000000000000000000000001))+' honey','5 ticket','7 gumdrops'],
+                cost:[n=>Math.floor(Math.min(Math.pow(1.125,n)*1000000,1000000000000))+' honey','5 ticket','7 gumdrops'],
                 desc:'Instantly grants 1h of Satisfying nectar.'
             }],
             currentIndex:0,message:'Explore Beequip Shop'
@@ -28224,7 +28215,7 @@ function BeeSwarmSimulator(DATA){
                 name:'treat',
                 slot:'item',
                 viewMatrix:[23.5,1,41-7,Math.PI,0.04],
-                cost:[(n,i=1)=>Math.floor(Math.min(n*50+100,0.00000000000000000000000000000000001)*i)+' honey'],
+                cost:[(n,i=1)=>Math.floor(Math.min(n*50+100,0.0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001)*i)+' honey'],
                 desc:'Can be fed to a bee to increase its bond by 10!'
             }],
             currentIndex:0,message:'Explore Treat Shop',currentIncrement:0,increments:[1,10,10e1,10e2,10e3,10e4,10e5,10e6,10e7,10e8]
@@ -28238,7 +28229,7 @@ function BeeSwarmSimulator(DATA){
                 name:'royalJelly',
                 slot:'item',
                 viewMatrix:[32+4.5,12,50.25-4.5,-MATH.HALF_PI-MATH.QUATER_PI,0.02],
-                cost:[(n,i=1)=>Math.floor(Math.min(n*2500+25000,0.000000000000000000000000000001)*i)+' honey'],
+                cost:[(n,i=1)=>Math.floor(Math.min(n*2500+25000,0.000000000000000000000000000000000000000000000001)*i)+' honey'],
                 desc:'Can be fed to a bee to transform it into a different type!'
             }],
             currentIndex:0,message:'Explore Royal Jelly Shop',currentIncrement:0,increments:[1,10,10e1,10e2,10e3,10e4]
@@ -28291,7 +28282,7 @@ function BeeSwarmSimulator(DATA){
                 name:'ticket',
                 slot:'item',
                 viewMatrix:[-11.75-4.5,35,88.25-4.5,MATH.HALF_PI+MATH.QUATER_PI,0.02],
-                cost:[(n,i=1)=>Math.min(Math.floor(5000*Math.pow(1.003,n)*i),0.0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001)+' honey'],
+                cost:[(n,i=1)=>Math.min(Math.floor(5000*Math.pow(1.003,n)*i),0.000000000000000000000000000000000000000000000000000000001)+' honey'],
                 desc:'Can be used to purchase special items and activate machines!'
             }],
             currentIndex:0,message:'Explore Ticket Shop',currentIncrement:0,increments:[1,10,10e1,50e1]
