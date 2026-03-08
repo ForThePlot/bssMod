@@ -3137,7 +3137,7 @@ function BeeSwarmSimulator(DATA){
         
         photon:{
             
-            u:128*2/2048,v:256/2048,meshPartId:6,gatherSpeed:2,gatherAmount:20,speed:21,convertSpeed:2,convertAmount:240,tokens:['beamStorm','haste','whiteBoost'],attackTokens:['haste'],attack:3,energy:Infinity,rarity:'event',color:'white',description:"An entity made of pure light temporarily taking on the form of a bee.",giftedHiveBonus:{oper:'+',stat:'instantWhiteConversion,instantBlueConversion,instantRedConversion',num:0.05},trails:[{length:10,size:0.25,color:[1,1,0,0.5],skipFrame:2,skipAdd:2}]
+            u:128*2/2048,v:256/2048,meshPartId:6,gatherSpeed:2,gatherAmount:20,speed:21,convertSpeed:2,convertAmount:240,tokens:['beamStorm','haste','whiteBoost'],attackTokens:['haste'],attack:3,energy:Infinity,rarity:'event',color:'white',description:"An entity made of pure light temporarily taking on the form of a bee.",giftedHiveBonus:{oper:'+',stat:'instantWhiteConversion,instantBlueConversion,instantRedConversion',num:100},trails:[{length:10,size:0.25,color:[1,1,0,0.5],skipFrame:2,skipAdd:2}]
         },
         
         bumble:{
@@ -34760,3 +34760,4 @@ function BeeSwarmSimulator(DATA){
     }
     
 }
+
